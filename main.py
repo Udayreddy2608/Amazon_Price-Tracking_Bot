@@ -14,11 +14,11 @@ soup=BeautifulSoup(webpage,"html.parser")
 cost=soup.find(name="span",class_="a-price-whole").getText()
 l = cost.split(".")
 price=int(l[0])
-
-if price==price:
+preference=int(input("Enter the price at you want to buy this product??"))
+if price==preference:
     connection=smtplib.SMTP("smtp.gmail.com")
     connection.starttls()
     connection.login(user=MY_EMAIL,password=MY_PASSWORD)
     connection.sendmail(from_addr=MY_EMAIL,to_addrs="YOUR EMAIL",
                         msg=f"subject:Price Drop Alert\n\nThe price of the product you are looking for"
-                            f"is dropped down to {price}/- on Amazon\n\nClick to buy{URL}")
+                            f"is dropped down to {preference}/- on Amazon\n\nClick to buy{URL}")
